@@ -1,0 +1,4 @@
+{
+  "//": "Passed to Puppeteer (which mmdc uses) to launch its bundled Chromium. --no-sandbox is required in CI containers (and Docker) where the kernel sandbox cannot be granted; it is harmless on developer workstations because mmdc only renders trusted, in-repo Mermaid sources.",
+  "args": ["--no-sandbox"]
+}

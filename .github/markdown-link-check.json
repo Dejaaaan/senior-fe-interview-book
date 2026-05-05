@@ -1,0 +1,18 @@
+{
+  "ignorePatterns": [
+    { "pattern": "^http://localhost" },
+    { "pattern": "^https://errors.example.com" },
+    { "pattern": "^https://app.example.com" },
+    { "pattern": "^https://api.example.com" },
+    { "pattern": "^https://auth.example.com" },
+    { "pattern": "^https://media.example.com" },
+    { "pattern": "^https://accounts.google.com" },
+    { "pattern": "^https://your-org" },
+    { "pattern": "^https://my-pool" }
+  ],
+  "timeout": "20s",
+  "retryOn429": true,
+  "retryCount": 3,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 206, 301, 302, 304, 308, 401, 403]
+}

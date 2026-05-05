@@ -1,0 +1,30 @@
+{
+  "name": "aws-samples",
+  "version": "0.0.0",
+  "private": true,
+  "description": "CDK stacks for the AWS chapter (Tasks app: Next.js + API GW + Lambda + DynamoDB + Cognito).",
+  "scripts": {
+    "synth": "cdk synth",
+    "diff": "cdk diff",
+    "deploy": "cdk deploy --all",
+    "destroy": "cdk destroy --all",
+    "test": "vitest run --passWithNoTests"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "aws-cdk": "^2.180.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.700.0",
+    "@aws-sdk/client-secrets-manager": "^3.700.0",
+    "@aws-sdk/lib-dynamodb": "^3.700.0",
+    "aws-cdk-lib": "^2.180.0",
+    "aws-lambda": "^1.0.7",
+    "constructs": "^10.4.2",
+    "jose": "^5.9.6",
+    "zod": "^3.23.8"
+  }
+}

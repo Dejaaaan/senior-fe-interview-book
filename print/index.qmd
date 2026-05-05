@@ -1,0 +1,46 @@
+---
+title: "Welcome"
+---
+
+This is the print edition (PDF / EPUB / HTML) of the **Senior Frontend Interview Prep** book.
+
+The same Markdown source files in [`../content/`](../content) feed both this Quarto build and the Docusaurus web site under [`../web/`](../web). For a navigable reading experience with search, prefer the web edition.
+
+## What's inside
+
+The book is organised in 13 parts plus a glossary:
+
+- **Introduction.** How to use the book, study plans, recommended reading paths.
+- **Foundations.** TypeScript, JavaScript, modern HTML/CSS, accessibility, and Browser & Web Platform APIs.
+- **Modern React.** Mental model, hooks, Suspense, Server vs. Client Components, state, forms, performance, testing.
+- **Next.js.** App Router, layouts, data fetching, Server Actions, middleware, auth, deployment.
+- **Angular Basics.** Components, DI, RxJS, routing, forms, HttpClient, Signals — survival kit for interviews.
+- **Frontend Architecture.** Component patterns, design systems, state machines (XState), project structure, micro-frontends.
+- **Production Concerns.** Performance, testing strategy, observability, build tooling, CI/CD + feature flags, i18n, PWA, AI features.
+- **Node.js Backend.** Node fundamentals, Express, Fastify, NestJS — same Tasks API built three ways.
+- **REST APIs & Networking.** REST principles, pagination, idempotency, errors, OpenAPI, HTTP/TLS, real-time, GraphQL & tRPC.
+- **Authentication & Authorization.** AuthN/AuthZ, sessions vs JWT, OAuth2/OIDC, cookies, refresh tokens, RBAC/ABAC, concrete implementations.
+- **Security & Privacy.** OWASP Top 10, XSS+CSP, CSRF, CORS, supply chain, secrets/TLS/rate limiting, GDPR.
+- **AWS for Frontend Engineers.** IAM, S3, CloudFront/Route 53, Lambda, API Gateway, DynamoDB, Cognito, messaging, CloudWatch, Secrets/SSM, plus an end-to-end deployment.
+- **Interview Prep Toolkit.** Frontend system-design framework, six worked prompts, behavioral interviewing, senior leadership, take-home & code review.
+
+Parts are numbered I–XIII in the table of contents; the labels above are the part titles.
+
+## Conventions
+
+- **TypeScript** for every code sample.
+- Inline excerpts; longer code lives in the book's [`code/`](../code) workspace.
+- Diagrams via Mermaid.
+- Each chapter ends with **Key takeaways**, **Common interview questions**, and **Further reading**.
+- Callouts use blockquotes (`> **Note:**`) to render correctly in both Docusaurus and Quarto.
+
+## Editions
+
+| Edition | Source | Best for |
+| --- | --- | --- |
+| Web (Docusaurus) | [`web/`](../web) | Browsing, search, dark mode |
+| HTML (Quarto) | `print/_book/index.html` | Single-page reading |
+| PDF (Quarto) | `print/_book/Senior-Frontend-Interview-Prep.pdf` | Reading offline / print |
+| EPUB (Quarto) | `print/_book/Senior-Frontend-Interview-Prep.epub` | E-readers |
+
+Now turn the page (or scroll). Good luck with the interview.

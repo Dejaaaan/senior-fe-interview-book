@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS demos</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <header class="app__header">
+      <h1>Modern CSS demos</h1>
+      <button id="theme-toggle">Toggle theme</button>
+    </header>
+    <main class="app__main">
+      <section>
+        <h2>Auto-fit grid</h2>
+        <div class="cards">
+          <article class="card"><h3>Card 1</h3><p>Resize the window.</p></article>
+          <article class="card"><h3>Card 2</h3><p>No media queries.</p></article>
+          <article class="card"><h3>Card 3</h3><p>Just <code>repeat(auto-fit, minmax)</code>.</p></article>
+          <article class="card"><h3>Card 4</h3><p>Fluid by default.</p></article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Container query</h2>
+        <div class="card-wrapper" style="resize: horizontal; overflow: auto; max-width: 100%;">
+          <article class="card card--container">
+            <img alt="" src="https://placehold.co/200x200" />
+            <div>
+              <h3>Drag the corner</h3>
+              <p>This card switches layout based on its <em>own</em> width, not the viewport.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

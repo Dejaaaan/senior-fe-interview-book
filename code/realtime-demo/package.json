@@ -1,0 +1,21 @@
+{
+  "name": "realtime-demo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "WebSocket and Server-Sent Events examples for the realtime chapter.",
+  "scripts": {
+    "dev:ws": "tsx src/ws-server.ts",
+    "dev:sse": "tsx src/sse-server.ts",
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/ws": "^8.5.13",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}

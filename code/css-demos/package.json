@@ -1,0 +1,14 @@
+{
+  "name": "css-demos",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Modern CSS demos: Grid, container queries, :has(), theming.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}

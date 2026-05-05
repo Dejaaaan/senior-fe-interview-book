@@ -1,0 +1,65 @@
+@layer reset, base, components;
+
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; }
+}
+
+@layer base {
+  :root {
+    --color-bg: #ffffff;
+    --color-text: #111111;
+    --color-accent: oklch(70% 0.15 250);
+    font-family: system-ui, sans-serif;
+  }
+
+  [data-theme="dark"] {
+    --color-bg: #0c0f14;
+    --color-text: #e8edf3;
+    --color-accent: oklch(75% 0.13 250);
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    padding-inline: 1rem;
+  }
+}
+
+@layer components {
+  .app__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 1rem;
+  }
+  .app__header h1 { flex: 1; margin: 0; }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .card {
+    border: 1px solid color-mix(in oklab, var(--color-text), transparent 80%);
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+
+  .card-wrapper {
+    container-type: inline-size;
+    container-name: card;
+    border: 2px dashed var(--color-accent);
+    padding: 0.5rem;
+    margin-block-start: 1rem;
+  }
+  .card--container { display: grid; gap: 0.5rem; }
+  .card--container img { max-inline-size: 100%; height: auto; }
+
+  @container card (min-width: 480px) {
+    .card--container { grid-template-columns: 200px 1fr; align-items: center; }
+  }
+
+  /* :has() example: highlight the wrapper if the card has an image */
+  .card-wrapper:has(img) { box-shadow: 0 0 0 2px var(--color-accent); }
+}

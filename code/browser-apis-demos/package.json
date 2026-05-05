@@ -1,0 +1,17 @@
+{
+  "name": "browser-apis-demos",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Demos for IndexedDB, Web Workers, IntersectionObserver, BroadcastChannel.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "idb": "^8.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}

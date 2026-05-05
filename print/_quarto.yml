@@ -1,0 +1,254 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Senior Frontend Interview Prep"
+  subtitle: "AWS, React/Next.js, Angular basics, Node.js, REST, auth, security and frontend production for senior FE interviews."
+  author: "Dejan Ivanović"
+  date: today
+  search: true
+  page-navigation: true
+
+  chapters:
+    - index.qmd
+
+    - part: content/01-introduction/index.qmd
+      chapters:
+        - content/01-introduction/01-how-to-use.qmd
+        - content/01-introduction/02-study-plan.qmd
+
+    - part: content/02-foundations/index.qmd
+      chapters:
+        - content/02-foundations/01-typescript.qmd
+        - content/02-foundations/02-javascript-browser.qmd
+        - content/02-foundations/03-html-css.qmd
+        - content/02-foundations/04-accessibility.qmd
+        - content/02-foundations/05-browser-apis.qmd
+
+    - part: content/03-react/index.qmd
+      chapters:
+        - content/03-react/01-mental-model.qmd
+        - content/03-react/02-hooks-deep-dive.qmd
+        - content/03-react/03-suspense-concurrent.qmd
+        - content/03-react/04-server-vs-client.qmd
+        - content/03-react/05-state-management.qmd
+        - content/03-react/06-forms.qmd
+        - content/03-react/07-performance-intro.qmd
+        - content/03-react/08-testing-intro.qmd
+
+    - part: content/04-nextjs/index.qmd
+      chapters:
+        - content/04-nextjs/01-app-vs-pages.qmd
+        - content/04-nextjs/02-layouts-routing.qmd
+        - content/04-nextjs/03-data-fetching-caching.qmd
+        - content/04-nextjs/04-server-actions.qmd
+        - content/04-nextjs/05-middleware-edge.qmd
+        - content/04-nextjs/06-auth-integration.qmd
+        - content/04-nextjs/07-deployment.qmd
+
+    - part: content/05-angular-basics/index.qmd
+      chapters:
+        - content/05-angular-basics/01-components-modules.qmd
+        - content/05-angular-basics/02-di.qmd
+        - content/05-angular-basics/03-rxjs.qmd
+        - content/05-angular-basics/04-routing.qmd
+        - content/05-angular-basics/05-forms.qmd
+        - content/05-angular-basics/06-http.qmd
+        - content/05-angular-basics/07-signals.qmd
+        - content/05-angular-basics/08-react-equivalent.qmd
+
+    - part: content/06-fe-architecture/index.qmd
+      chapters:
+        - content/06-fe-architecture/01-component-patterns.qmd
+        - content/06-fe-architecture/02-design-systems.qmd
+        - content/06-fe-architecture/03-state-machines.qmd
+        - content/06-fe-architecture/04-project-structure.qmd
+        - content/06-fe-architecture/05-micro-frontends.qmd
+
+    - part: content/07-production-concerns/index.qmd
+      chapters:
+        - content/07-production-concerns/01-performance.qmd
+        - content/07-production-concerns/02-testing-strategy.qmd
+        - content/07-production-concerns/03-observability.qmd
+        - content/07-production-concerns/04-build-tooling.qmd
+        - content/07-production-concerns/05-cicd-feature-flags.qmd
+        - content/07-production-concerns/06-i18n.qmd
+        - content/07-production-concerns/07-pwa-offline.qmd
+        - content/07-production-concerns/08-ai-features.qmd
+
+    - part: content/08-nodejs-backend/index.qmd
+      chapters:
+        - content/08-nodejs-backend/01-node-fundamentals.qmd
+        - content/08-nodejs-backend/02-project-setup.qmd
+        - content/08-nodejs-backend/03-express.qmd
+        - content/08-nodejs-backend/04-fastify.qmd
+        - content/08-nodejs-backend/05-nestjs.qmd
+        - content/08-nodejs-backend/06-comparison.qmd
+
+    - part: content/09-rest-and-networking/index.qmd
+      chapters:
+        - content/09-rest-and-networking/01-rest-principles.qmd
+        - content/09-rest-and-networking/02-pagination-filtering.qmd
+        - content/09-rest-and-networking/03-versioning-idempotency.qmd
+        - content/09-rest-and-networking/04-errors.qmd
+        - content/09-rest-and-networking/05-openapi.qmd
+        - content/09-rest-and-networking/06-http-and-tls.qmd
+        - content/09-rest-and-networking/07-realtime.qmd
+        - content/09-rest-and-networking/08-graphql-trpc.qmd
+
+    - part: content/10-auth/index.qmd
+      chapters:
+        - content/10-auth/01-authn-vs-authz.qmd
+        - content/10-auth/02-sessions-vs-jwt.qmd
+        - content/10-auth/03-oauth-oidc.qmd
+        - content/10-auth/04-cookies.qmd
+        - content/10-auth/05-refresh-tokens.qmd
+        - content/10-auth/06-rbac-abac.qmd
+        - content/10-auth/07-implementations.qmd
+        - content/10-auth/08-react-client.qmd
+
+    - part: content/11-security-and-privacy/index.qmd
+      chapters:
+        - content/11-security-and-privacy/01-owasp.qmd
+        - content/11-security-and-privacy/02-xss-csp.qmd
+        - content/11-security-and-privacy/03-csrf.qmd
+        - content/11-security-and-privacy/04-cors.qmd
+        - content/11-security-and-privacy/05-other-attacks.qmd
+        - content/11-security-and-privacy/06-secrets-tls-rate-limiting.qmd
+        - content/11-security-and-privacy/07-privacy-gdpr.qmd
+
+    - part: content/12-aws/index.qmd
+      chapters:
+        - content/12-aws/01-iam.qmd
+        - content/12-aws/02-s3.qmd
+        - content/12-aws/03-cloudfront-route53.qmd
+        - content/12-aws/04-lambda.qmd
+        - content/12-aws/05-api-gateway.qmd
+        - content/12-aws/06-dynamodb.qmd
+        - content/12-aws/07-cognito.qmd
+        - content/12-aws/08-messaging.qmd
+        - content/12-aws/09-cloudwatch.qmd
+        - content/12-aws/10-secrets-ssm.qmd
+        - content/12-aws/11-end-to-end.qmd
+
+    - part: content/13-interview-prep/index.qmd
+      chapters:
+        - content/13-interview-prep/01-system-design-framework.qmd
+        - content/13-interview-prep/02-worked-chat.qmd
+        - content/13-interview-prep/03-worked-dashboard.qmd
+        - content/13-interview-prep/04-worked-feed.qmd
+        - content/13-interview-prep/05-worked-uploader.qmd
+        - content/13-interview-prep/06-worked-autocomplete.qmd
+        - content/13-interview-prep/07-worked-collab.qmd
+        - content/13-interview-prep/08-behavioral.qmd
+        - content/13-interview-prep/09-leadership.qmd
+        - content/13-interview-prep/10-take-home-and-review.qmd
+
+    - content/glossary.qmd
+
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    toc-depth: 3
+  pdf:
+    documentclass: scrbook
+    classoption:
+      # Allow parts and chapters to start on any page instead of forcing them
+      # onto a recto, eliminating the blank verso pages between sections that
+      # are otherwise inserted for two-sided print layouts.
+      - open=any
+      # Single-sided layout: same margins on every page, no recto/verso
+      # distinction. Appropriate for a screen-read PDF.
+      - twoside=false
+    papersize: a4
+    geometry:
+      - margin=2.5cm
+      # Reserve enough vertical space for the two-line running header
+      # (part title on one line, chapter number + title on the next).
+      - headheight=30pt
+      - headsep=1.5em
+    toc: true
+    toc-depth: 3
+    colorlinks: true
+    code-block-bg: true
+    code-block-border-left: "#2e7df6"
+    # Wrap long source lines instead of letting them run off the page.
+    code-overflow: wrap
+    # cover-image: cover.png
+    # PDF typography overrides:
+    # - Suppress scrbook's automatic "Part I.", "Part II." numbering above
+    #   part titles. The plain title from each part's index.md (e.g.
+    #   "Introduction", "Foundations") is the single heading shown — the
+    #   Roman numeral in the table of contents is the part's number.
+    # - Reset the chapter counter at each part, so chapters within each part
+    #   number 1, 2, 3 instead of running cumulatively across the book.
+    # - Customise running headers to show "<part title> / <chapter number>.
+    #   <chapter title>" on every body page. The part title is recorded by
+    #   \partmark when each part starts; the chapter title (with its number)
+    #   is recorded by \chaptermark when each chapter starts; \chead displays
+    #   both at the top of each page.
+    include-in-header:
+      text: |
+        \renewcommand*{\partformat}{}
+        \renewcommand*{\partlineswithprefixformat}[3]{#3}
+        \makeatletter
+        \@addtoreset{chapter}{part}
+        \makeatother
+        \usepackage{scrlayer-scrpage}
+        \pagestyle{scrheadings}
+        \clearpairofpagestyles
+        \renewcommand*{\partmark}[1]{\markboth{#1}{}}
+        \renewcommand*{\chaptermark}[1]{\markright{\thechapter.\enskip #1}}
+        \chead{%
+          \parbox[c]{\textwidth}{\centering
+            \leftmark\\
+            \rightmark%
+          }%
+        }
+        \cfoot*{\pagemark}
+        % Keep every embedded image (chiefly Mermaid diagrams pre-rendered to
+        % PNG by `mmdc` during the print:stage step) inside the printable area
+        % while preserving aspect ratio. Quarto emits explicit pixel-derived
+        % \includegraphics dimensions like `width=16in,height=1in` that
+        % override the usual \setkeys{Gin} defaults, so we instead wrap
+        % every image in \adjustbox with `max width` / `max totalheight`
+        % constraints that *always* apply on top of any explicit size. The
+        % height cap of 0.85\textheight leaves room around each figure for
+        % surrounding prose; very wide flowcharts (LR layouts with many
+        % nodes) shrink to fit the body width — if any specific diagram
+        % becomes too small to read, the underlying Mermaid source should
+        % be reshaped vertically (TB or TD) rather than relaxing the cap.
+        \usepackage{graphicx}
+        \usepackage{adjustbox}
+        \let\OldIncludegraphics\includegraphics
+        \renewcommand*{\includegraphics}[2][]{%
+          \adjustbox{max width=\linewidth,max totalheight=0.85\textheight,keepaspectratio}{%
+            \OldIncludegraphics[#1]{#2}%
+          }%
+        }
+        % Wrap long source lines in code blocks. fvextra extends fancyvrb with
+        % the breaklines option. Redefining Pandoc's "Highlighting" environment
+        % is what actually makes long lines wrap inside syntax-highlighted code
+        % blocks. We deliberately avoid `breakanywhere` because it can interfere
+        % with Pandoc's colour-command escape sequences and silently drop
+        % syntax highlighting on affected blocks. The default fvextra
+        % continuation symbol (↪) on the left signals that a line was wrapped;
+        % we keep it so the reader can tell hard line breaks from soft ones.
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+          commandchars=\\\{\},
+          breaklines,
+          breakautoindent=true,
+          fontsize=\small
+        }
+  epub:
+    toc: true
+    toc-depth: 3
+    # cover-image: cover.png
+
+execute:
+  enabled: false

@@ -1,0 +1,33 @@
+{
+  "name": "senior-fe-interview-book",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A book on AWS, modern React/Next.js, Angular basics, Node.js (Express/Fastify/NestJS), REST, auth, security, and frontend production for senior frontend interview prep.",
+  "license": "CC-BY-NC-SA-4.0",
+  "scripts": {
+    "web:dev": "pnpm --filter web start",
+    "web:build": "pnpm --filter web build",
+    "web:serve": "pnpm --filter web serve",
+    "web:preview": "pnpm web:build && pnpm web:serve",
+    "print:setup": "puppeteer browsers install chrome-headless-shell && puppeteer browsers install chrome",
+    "print:stage": "pnpm print:setup && python3 print/scripts/preprocess.py",
+    "print:render": "pnpm print:stage && cd print && quarto render",
+    "print:preview": "pnpm print:stage && cd print && quarto preview",
+    "build": "pnpm web:build && pnpm print:render"
+  },
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^11.4.0",
+    "puppeteer": "^24.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@mermaid-js/mermaid-cli",
+      "puppeteer"
+    ]
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@10.22.0"
+}

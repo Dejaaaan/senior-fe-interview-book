@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Browser API demos</title>
+    <style>
+      body { font-family: system-ui, sans-serif; padding: 1rem; max-width: 720px; margin: auto; }
+      .sentinel { height: 100px; border: 1px dashed gray; margin-block-start: 200vh; }
+      .item { padding: 0.5rem; border-bottom: 1px solid #eee; }
+    </style>
+  </head>
+  <body>
+    <h1>Browser API demos</h1>
+
+    <section>
+      <h2>IndexedDB drafts</h2>
+      <input id="draft" placeholder="type a draft" />
+      <button id="save">Save</button>
+      <ul id="drafts"></ul>
+    </section>
+
+    <section>
+      <h2>BroadcastChannel</h2>
+      <p>Open this page in a second tab and click below.</p>
+      <button id="ping">Ping other tabs</button>
+      <p id="msg"></p>
+    </section>
+
+    <section>
+      <h2>IntersectionObserver "load more"</h2>
+      <ul id="list"></ul>
+      <div id="sentinel" class="sentinel">scroll down to load more</div>
+    </section>
+
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

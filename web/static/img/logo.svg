@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Senior Frontend Interview Prep">
+  <rect x="2" y="2" width="28" height="28" rx="6" fill="#3578e5"/>
+  <path
+    d="M11 12 L7 16 L11 20 M21 12 L25 16 L21 20"
+    stroke="white"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+</svg>

@@ -1,0 +1,16 @@
+{
+  "name": "ts-demos",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Runnable advanced TypeScript patterns from Part 2.1.",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "demo:result": "tsx src/result.ts",
+    "demo:branded": "tsx src/branded.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "~5.6.0"
+  }
+}

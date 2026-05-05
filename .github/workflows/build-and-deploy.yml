@@ -1,0 +1,140 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    name: Build Docusaurus site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build web (Docusaurus)
+        run: pnpm web:build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/build
+
+  print:
+    name: Render Quarto book (HTML + PDF + EPUB)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      # Node + pnpm are required so that `pnpm install` brings in
+      # `@mermaid-js/mermaid-cli` (mmdc) plus puppeteer, which the print:stage
+      # step uses to pre-render every Mermaid diagram to PNG. Pre-rendering
+      # replaces Quarto's built-in Mermaid-via-Chromium pipeline (which races
+      # and produces truncated SVGs for some diagrams). `puppeteer` is on the
+      # `pnpm.onlyBuiltDependencies` whitelist in package.json, so its
+      # postinstall hook downloads a headless Chromium into `~/.cache/puppeteer`.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      # Cache the Chromium that puppeteer's postinstall downloads (~150 MB)
+      # so subsequent runs reuse it instead of re-fetching every time.
+      - name: Cache Puppeteer's Chromium
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            puppeteer-${{ runner.os }}-
+
+      - name: Install dependencies (incl. mmdc + Puppeteer Chromium)
+        run: pnpm install --frozen-lockfile
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+
+      # `print:stage` chains through `print:setup`, which re-runs
+      # `puppeteer browsers install` defensively so a missing Chromium is
+      # fixed automatically (no-op when the cache restored a working copy).
+      - name: Stage Markdown + pre-render Mermaid diagrams
+        run: pnpm print:stage
+
+      # Cap the render to fail fast if a downstream step ever hangs. The full
+      # book renders locally in well under five minutes; 15 gives generous
+      # headroom for a cold CI cache.
+      - name: Render book
+        timeout-minutes: 15
+        run: |
+          cd print
+          quarto render
+
+      - name: Upload print artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: print-build
+          path: print/_book/
+          retention-days: 7
+
+  link-check:
+    name: Markdown link check
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          folder-path: content
+          use-quiet-mode: yes
+          config-file: .github/markdown-link-check.json
+
+  code-tests:
+    name: Run code/* tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Test (best-effort across packages)
+        run: |
+          pnpm -r --workspace-concurrency=1 --if-present test
+        continue-on-error: true
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: web
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
